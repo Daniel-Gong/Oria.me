@@ -58,6 +58,15 @@ function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
+function initializeHeroFlow() {
+    if (typeof window.initOriaHeroRipples !== 'function') return;
+    window.initOriaHeroRipples({
+        hero: document.querySelector('.hero'),
+        canvas: document.querySelector('.hero-flow'),
+        wash: document.querySelector('.hero-wash'),
+    });
+}
+
 function initializeChrome() {
     const header = document.querySelector('.site-header');
     const navbar = document.querySelector('.navbar');
@@ -137,7 +146,7 @@ function initializeAnimations() {
             .fromTo('.hero-actions', { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75 }, '-=0.4')
             .fromTo('.hero-scroll-hint', { opacity: 0 }, { opacity: 0.45, duration: 0.5 }, '-=0.2');
 
-        gsap.to('.hero-wash', {
+        gsap.to('.hero-parallax', {
             yPercent: 12,
             ease: 'none',
             scrollTrigger: {
@@ -584,6 +593,7 @@ function showWaitlistMessage(message, type) {
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeAnimations();
+    initializeHeroFlow();
     setTimeout(() => {
         initializeWaitlistForm();
     }, 100);

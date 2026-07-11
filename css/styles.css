@@ -370,6 +370,24 @@ a {
     will-change: transform;
 }
 
+.hero-flow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hero.has-liquid-hero .hero-wash {
+    opacity: 0;
+}
+
+.hero.has-liquid-hero .hero-flow {
+    opacity: 0.5;
+    mix-blend-mode: soft-light;
+}
+
 .hero-inner {
     position: relative;
     z-index: 1;
@@ -2224,6 +2242,10 @@ a {
 
     .hero-scroll-hint {
         animation: none;
+    }
+
+    .hero-flow {
+        display: none;
     }
 
     .vision-fragments {
