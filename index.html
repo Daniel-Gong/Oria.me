@@ -12,37 +12,33 @@
         content="Oria AI, personal AI, life insights, health, calendar, notes, AI companion, self-discovery">
     <link rel="icon" href="assets/favicon.png" type="image/png">
 
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Oria AI - Your AI Life Coach">
-    <meta property="og:description" content="Sythesizing fragmented data of your life into unified, actionable wisdom.">
+    <meta property="og:description"
+        content="Synthesizing fragmented data of your life into unified, actionable wisdom.">
     <meta property="og:image" content="https://oria.me/assets/og-image.png">
     <meta property="og:url" content="https://oria.me/">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Oria AI - Your AI Life Coach">
     <meta name="twitter:description"
-        content="Sythesizing fragmented data of your life into unified, actionable wisdom.">
+        content="Synthesizing fragmented data of your life into unified, actionable wisdom.">
     <meta name="twitter:image" content="https://oria.me/assets/og-image.png">
     <meta name="google-site-verification" content="SdJLu4zE4e6kL_7AZPhLSUtyqqS8FudulPq9qn_w4m4" />
 
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&display=swap"
+        rel="stylesheet">
 
-    <!-- GSAP for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <!-- Runtime + Firebase config -->
     <script src="js/config/runtime-config.js"></script>
     <script type="module" src="js/config/firebase-app.js"></script>
-    <!-- Schema.org JSON-LD: Organization, WebSite, SoftwareApplication, FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -120,97 +116,183 @@
 </head>
 
 <body>
-    <!-- Abstract Background Elements -->
-    <div class="background-canvas">
-        <div class="gradient-orb orb-sage"></div>
-        <div class="gradient-orb orb-gold"></div>
-        <div class="gradient-orb orb-blue"></div>
-        <div class="noise-overlay"></div>
-    </div>
-
-    <!-- Site header: navigation -->
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="container nav-container">
-                <a href="/" class="brand-logo">ORIA AI</a>
-                <div class="nav-links">
+    <header class="site-header is-over-hero">
+        <nav class="navbar" aria-label="Primary">
+            <div class="nav-shell">
+                <a href="/" class="brand-logo" aria-label="Oria AI home">ORIA AI</a>
+                <div class="nav-links" id="nav-links">
                     <a href="#vision" class="nav-item">Vision</a>
-                    <a href="#ecosystem" class="nav-item">Ecosystem</a>
+                    <a href="#capabilities" class="nav-item">Capabilities</a>
+                    <a href="#values" class="nav-item">Values</a>
                     <a href="/blog/" class="nav-item">Blog</a>
-                    <a href="#newsletter" class="nav-item">Newsletter</a>
-                    <a href="/app/#/login" class="nav-item nav-item--login">Log in</a>
+                    <a href="/app/#/login" class="nav-item">Log in</a>
+                    <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152"
+                        class="nav-cta">Try Oria</a>
                 </div>
-                <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+                <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="nav-links">
+                    <span></span><span></span>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section: Typography First -->
+    <!-- Hero: brand-first, full-bleed library ink -->
     <section class="hero" id="hero">
-        <div class="container hero-container">
-            <div class="hero-copy">
-                <h1 class="hero-title">
-                    <span class="line-1">Your Life Guide.</span>
-                    <span class="line-2">An evolving self.</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Oria AI is an AI life coach that synthesizes the fragmented data of your life into
-                    unified, actionable wisdom.
-                </p>
-                <aside class="home-invite-panel home-invite-panel-hero">
-                    <div class="home-invite-header">
-                        <p class="home-invite-eyebrow">Private access</p>
-                        <div class="home-invite-code" aria-label="Invite code PTUM9J">PTUM9J</div>
-                    </div>
-                    <div class="home-invite-body">
-                        <h2 class="home-invite-title">Begin with an invitation,<br class="home-invite-break"> not a
-                            waitlist.</h2>
-                        <p class="home-invite-desc">Download Oria AI on the App Store, and use
-                            the code PTUM9J to unlock entry.</p>
-                    </div>
-                    <div class="home-invite-actions">
-                        <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152"
-                            class="home-invite-primary">Download on the App Store</a>
-                        <a href="#newsletter" class="home-invite-secondary">Get updates</a>
-                    </div>
-                </aside>
+        <div class="hero-parallax" aria-hidden="true">
+            <img src="assets/art/art-hero-wash.jpg" alt="" class="hero-wash" width="1600" height="900" decoding="async">
+        </div>
+        <div class="hero-inner">
+            <p class="hero-brand"></p>
+            <h1 class="hero-title">
+                <span class="hero-italic">Evolvable</span>
+                <span class="hero-roman">Life Guide</span>
+            </h1>
+            <p class="hero-subtitle">Responsible personal AI that turns the fragments of your life into clear,
+                actionable wisdom.</p>
+            <div class="hero-actions">
+                <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152"
+                    class="btn-pill btn-pill-light">Download on the App Store</a>
+                <a href="#invite" class="btn-text-link">Private access →</a>
             </div>
-            <div class="hero-visual">
-                <img src="assets/hero-app-showcase.png"
-                    alt="Oria AI app: Insights, Ask Oria, and Future Simulation on iPhone" class="hero-showcase-img"
-                    width="768" height="1024" decoding="async">
-            </div>
+        </div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
         </div>
     </section>
 
-    <!-- Problem Statement: The Noise -->
+    <!-- Featured invite story -->
+    <section class="featured" id="invite">
+        <div class="container">
+            <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152" class="featured-card">
+                <div class="featured-media">
+                    <img src="assets/art/art-featured.jpg" alt="" class="featured-img" width="1200" height="900"
+                        loading="lazy" decoding="async">
+                    <div class="featured-parallax-layer" aria-hidden="true"></div>
+                </div>
+                <div class="featured-copy">
+                    <p class="mono-label">Private access · Invite PTUM9J</p>
+                    <h2 class="featured-title">Begin with an invitation, not a waitlist.</h2>
+                    <p class="featured-desc">Download Oria AI and use code <strong>PTUM9J</strong> to unlock entry into
+                        your evolving self.</p>
+                    <span class="featured-cta">Open the App Store →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Vision -->
     <section class="vision" id="vision">
-        <div class="container vision-container">
-            <h2 class="section-title">The modern paradox: data-rich but wisdom-poor.</h2>
-            <div class="vision-content">
-                <p class="body-large">We live in an era of digital overwhelm. Your health metrics, calendar events,
-                    personal notes, and behavioral patterns exist in isolated silos.</p>
-                <p class="body-medium">Oria bridges this divide by creating an <a
-                        href="/blog/what-is-evolvable-digital-self.html">evolvable digital reflection</a> of your
-                    well-being. It transforms fragmented signals into a proactive, intelligent navigator. By identifying
-                    predictive patterns before they manifest as burnout or fatigue, Oria acts as a preventative mirror
-                    pointing toward alignment.</p>
+        <div class="container vision-grid">
+            <div class="vision-sticky">
+                <p class="mono-label">The modern paradox</p>
+                <h2 class="display-heading">Data-rich.<br><em>Wisdom-poor.</em></h2>
+            </div>
+            <div class="vision-scroll">
+                <p class="body-xl">Your health metrics, calendar, notes, and patterns live in isolated silos. Oria
+                    bridges that divide—an <a href="/blog/what-is-evolvable-digital-self.html">evolvable digital
+                        reflection</a> that turns fragmented signals into a proactive navigator.</p>
+                <p class="body-lg">By surfacing predictive patterns before burnout or fatigue, Oria acts as a
+                    preventative mirror pointing toward alignment and <a
+                        href="/blog/intentional-living.html">intentional living</a>.</p>
+                <div class="vision-art">
+                    <img src="assets/art/art-integration.jpg"
+                        alt="Watercolor illustration of life signals weaving together" width="800" height="800"
+                        loading="lazy" decoding="async">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Ecosystem: Connected Apps -->
-    <section class="ecosystem" id="ecosystem">
-        <div class="container ecosystem-container">
-            <h2 class="section-title text-center">Seamless Integration</h2>
-            <p class="section-subtitle text-center">The foundation of <a
-                    href="/blog/bio-digital-synthesis-frontier-of-health.html">bio-digital synthesis</a>: connect the
-                pieces of your life to form a complete picture.</p>
+    <!-- Capabilities: MAI-model-card style -->
+    <section class="capabilities" id="capabilities">
+        <div class="container">
+            <div class="section-intro">
+                <p class="mono-label">Capabilities</p>
+                <h2 class="section-heading">Discover how Oria learns with you</h2>
+            </div>
 
-            <div class="apps-grid">
-                <div class="app-category">
-                    <h3 class="category-title">Health & Fitness</h3>
-                    <ul class="app-list">
+            <div class="cap-rail" data-parallax-rail>
+                <article class="cap-card">
+                    <div class="cap-art">
+                        <img src="assets/art/art-connect.jpg" alt="" width="800" height="800" loading="lazy">
+                    </div>
+                    <p class="mono-label">Foundation</p>
+                    <h3>Connect</h3>
+                    <p>Securely link health, calendar, notes, and communication into one private sanctuary.</p>
+                    <a href="#ecosystem" class="text-arrow">See integrations →</a>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-art">
+                        <img src="assets/art/art-synthesize.jpg" alt="" width="800" height="800" loading="lazy">
+                    </div>
+                    <p class="mono-label">Intelligence</p>
+                    <h3>Synthesize</h3>
+                    <p>Oria builds long-term memory and finds invisible patterns across the pieces of your life.</p>
+                    <a href="/blog/bio-digital-synthesis-frontier-of-health.html" class="text-arrow">Read more →</a>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-art">
+                        <img src="assets/art/art-evolve.jpg" alt="" width="800" height="800" loading="lazy">
+                    </div>
+                    <p class="mono-label">Guidance</p>
+                    <h3>Evolve</h3>
+                    <p>Receive gentle, exactly-timed insights that guide you back to equilibrium as you change.</p>
+                    <a href="/blog/behavioral-science-behavioral-ai-life-coaching.html" class="text-arrow">Read more
+                        →</a>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-art">
+                        <img src="assets/art/art-wisdom.jpg" alt="" width="800" height="800" loading="lazy">
+                    </div>
+                    <p class="mono-label">Outcome</p>
+                    <h3>Wisdom</h3>
+                    <p>Unified, actionable guidance—not another dashboard—so you can focus on living, not logging.</p>
+                    <a href="/blog/human-centered-personal-ai.html" class="text-arrow">Read more →</a>
+                </article>
+                <article class="cap-card">
+                    <div class="cap-art">
+                        <img src="assets/art/art-pulse.jpg" alt="" width="800" height="800" loading="lazy">
+                    </div>
+                    <p class="mono-label">Rhythm</p>
+                    <h3>Pulse</h3>
+                    <p>Feel the cadence of your days: energy, focus, recovery, and relationships in one living picture.
+                    </p>
+                    <a href="#newsletter" class="text-arrow">Get updates →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission band -->
+    <section class="mission" id="mission">
+        <div class="mission-parallax" aria-hidden="true">
+            <div class="mission-orb mission-orb-a"></div>
+            <div class="mission-orb mission-orb-b"></div>
+        </div>
+        <div class="container mission-inner">
+            <h2 class="mission-heading">At Oria, we’re building personal AI with humanity at the center of every
+                decision.</h2>
+            <p class="mission-body">An evolvable life guide means advanced synthesis designed to stay private,
+                controllable, and firmly in service of you—not the other way around.</p>
+        </div>
+    </section>
+
+    <!-- Ecosystem -->
+    <section class="ecosystem" id="ecosystem">
+        <div class="container">
+            <div class="section-intro">
+                <p class="mono-label">Ecosystem</p>
+                <h2 class="section-heading">Seamless integration</h2>
+                <p class="section-lede">The foundation of <a
+                        href="/blog/bio-digital-synthesis-frontier-of-health.html">bio-digital synthesis</a>: connect
+                    the
+                    pieces of your life to form a complete picture.</p>
+            </div>
+            <div class="eco-grid">
+                <div class="eco-col">
+                    <h3>Health & Fitness</h3>
+                    <ul>
                         <li>Apple Health</li>
                         <li>Oura</li>
                         <li>Whoop</li>
@@ -218,9 +300,9 @@
                         <li>MyFitnessPal</li>
                     </ul>
                 </div>
-                <div class="app-category">
-                    <h3 class="category-title">Productivity & Time</h3>
-                    <ul class="app-list">
+                <div class="eco-col">
+                    <h3>Productivity & Time</h3>
+                    <ul>
                         <li>Apple Calendar</li>
                         <li>Google Calendar</li>
                         <li>Reminders</li>
@@ -228,9 +310,9 @@
                         <li>Screen Time</li>
                     </ul>
                 </div>
-                <div class="app-category">
-                    <h3 class="category-title">Mind & Memory</h3>
-                    <ul class="app-list">
+                <div class="eco-col">
+                    <h3>Mind & Memory</h3>
+                    <ul>
                         <li>Apple Notes</li>
                         <li>Notion</li>
                         <li>Day One</li>
@@ -238,9 +320,9 @@
                         <li>Spotify / Apple Music</li>
                     </ul>
                 </div>
-                <div class="app-category">
-                    <h3 class="category-title">Social & Communication</h3>
-                    <ul class="app-list">
+                <div class="eco-col">
+                    <h3>Social & Communication</h3>
+                    <ul>
                         <li>Gmail / Outlook</li>
                         <li>Messages</li>
                         <li>X / Twitter</li>
@@ -252,38 +334,54 @@
         </div>
     </section>
 
-    <!-- How It Works: The Journey -->
-    <section class="journey" id="journey">
-        <div class="container journey-container">
-            <h2 class="section-title">The Path to Clarity</h2>
-            <div class="journey-steps">
-                <div class="journey-step">
-                    <div class="step-indicator">01</div>
-                    <h3 class="step-title">Connect</h3>
-                    <p class="step-desc">Securely link your physiological, behavioral, and digital data streams into one
-                        private sanctuary.</p>
-                </div>
-                <div class="journey-step">
-                    <div class="step-indicator">02</div>
-                    <h3 class="step-title">Synthesize</h3>
-                    <p class="step-desc">Oria learns your baseline, building long-term memories and identifying
-                        invisible patterns across your life.</p>
-                </div>
-                <div class="journey-step">
-                    <div class="step-indicator">03</div>
-                    <h3 class="step-title">Evolve</h3>
-                    <p class="step-desc">Receive gentle, exactly-timed insights that guide you back to equilibrium and
-                        foster <a href="/blog/intentional-living.html">intentional living</a>.</p>
-                </div>
+    <!-- Values -->
+    <section class="values" id="values">
+        <div class="container">
+            <div class="section-intro">
+                <p class="mono-label">Our values</p>
+                <h2 class="section-heading">How we work shapes what we build.</h2>
+            </div>
+            <div class="values-list">
+                <button class="value-item is-active" type="button" data-value="privacy">
+                    <span class="value-name">Privacy</span>
+                    <span class="value-desc">Your life data stays yours. We design for consent, control, and quiet
+                        confidence—not surveillance.</span>
+                </button>
+                <button class="value-item" type="button" data-value="clarity">
+                    <span class="value-name">Clarity</span>
+                    <span class="value-desc">We design for focus so you can attend to living, not wrestling with another
+                        tool.</span>
+                </button>
+                <button class="value-item" type="button" data-value="agency">
+                    <span class="value-name">Agency</span>
+                    <span class="value-desc">Oria advises; you decide. Human judgment stays at the center of every
+                        insight.</span>
+                </button>
+                <button class="value-item" type="button" data-value="synthesis">
+                    <span class="value-name">Synthesis</span>
+                    <span class="value-desc">Fragments become meaning. We connect signals across health, time, memory,
+                        and relationships.</span>
+                </button>
+                <button class="value-item" type="button" data-value="care">
+                    <span class="value-name">Care</span>
+                    <span class="value-desc">Guidance should feel gentle and timely—never noisy, never coercive.</span>
+                </button>
+                <button class="value-item" type="button" data-value="evolution">
+                    <span class="value-name">Evolution</span>
+                    <span class="value-desc">As you change, Oria changes with you—learning baselines, not locking you
+                        into yesterday’s self.</span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Blog Teaser: The Philosophy -->
+    <!-- Field notes -->
     <section class="philosophy" id="philosophy">
-        <div class="container philosophy-container">
-            <h2 class="section-title">Field Notes</h2>
-            <p class="section-subtitle">Explorations in bio-digital synthesis and human-centered AI.</p>
+        <div class="container">
+            <div class="section-intro">
+                <p class="mono-label">Field notes</p>
+                <h2 class="section-heading">Explorations in human-centered AI</h2>
+            </div>
             <div class="editorial-grid">
                 <!-- BLOG_TEASER_START -->
                 <article class="editorial-card">
@@ -309,35 +407,29 @@
                 </article>
                 <!-- BLOG_TEASER_END -->
                 <div class="editorial-card more-card">
-                    <a href="/blog/" class="view-all-link">Enter the Blog <i class="fas fa-arrow-right"></i></a>
+                    <a href="/blog/" class="view-all-link">Enter the Blog →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter signup: The Resolution -->
+    <!-- Closing CTA + newsletter -->
     <section class="resolution" id="newsletter">
-        <div class="container resolution-container">
-            <div class="resolution-content">
-                <aside class="home-invite-panel home-invite-panel-end">
-                    <div class="home-invite-header">
-                        <p class="home-invite-eyebrow">Ready to step in?</p>
-                        <div class="home-invite-code" aria-label="Invite code PTUM9J">PTUM9J</div>
-                    </div>
-                    <div class="home-invite-body">
-                        <h2 class="home-invite-title">Take the next step into your evolving self.</h2>
-                        <p class="home-invite-desc">If the vision resonates, download Oria AI from the App Store and use
-                            the code PTUM9J to unlock entry.</p>
-                    </div>
-                    <div class="home-invite-actions">
-                        <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152"
-                            class="home-invite-primary">Download on the App Store</a>
-                        <a href="/blog/" class="home-invite-secondary">Read field notes</a>
-                    </div>
-                </aside>
-                <h2 class="resolution-title">Find your center.</h2>
-                <p class="resolution-desc">Join our newsletter for updates, early access, and exclusive offers.</p>
-
+        <div class="container resolution-layout">
+            <div class="resolution-invite">
+                <p class="mono-label">Ready to step in?</p>
+                <div class="invite-code-display" aria-label="Invite code PTUM9J">PTUM9J</div>
+                <h2 class="resolution-title">Take the next step into your <em>evolving self</em>.</h2>
+                <p class="resolution-desc">Download Oria AI from the App Store and use code PTUM9J to unlock entry.</p>
+                <div class="resolution-actions">
+                    <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152"
+                        class="btn-pill btn-pill-dark">Download on the App Store</a>
+                    <a href="/blog/" class="btn-text-link dark">Read field notes →</a>
+                </div>
+            </div>
+            <div class="resolution-form-block">
+                <h3 class="form-heading">Find your center.</h3>
+                <p class="form-lede">Join our newsletter for updates, early access, and exclusive offers.</p>
                 <form id="waitlist-form" class="minimal-form">
                     <div class="form-wrapper">
                         <input type="email" id="waitlist-email" name="email" placeholder="Your email address" required
@@ -352,28 +444,38 @@
         </div>
     </section>
 
-    <!-- Refined Footer -->
-    <footer class="minimal-footer">
-        <div class="container footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">ORIA AI</div>
-                <div class="footer-social">
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-block">
+                <div class="footer-brand">ORIA</div>
+                <p class="footer-tagline">An evolvable personal AI for intentional living.</p>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <p class="mono-label">Explore</p>
+                    <a href="#vision">Vision</a>
+                    <a href="#capabilities">Capabilities</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/about">About</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-label">Connect</p>
                     <a href="https://discord.gg/Vxzb2NW9nx" target="_blank" rel="noopener noreferrer">Discord</a>
-                    <a href="https://x.com/OriaAI_official" target="_blank" rel="noopener noreferrer">Twitter</a>
+                    <a href="https://x.com/OriaAI_official" target="_blank" rel="noopener noreferrer">X</a>
                     <a href="https://www.linkedin.com/company/theother-intelligence/" target="_blank"
                         rel="noopener noreferrer">LinkedIn</a>
                     <a href="https://instagram.com/oriaai.official" target="_blank"
                         rel="noopener noreferrer">Instagram</a>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-copy">&copy; 2026 TheOther Intelligence LLC.</div>
-                <div class="footer-legal">
-                    <a href="/about">About</a>
+                <div class="footer-col">
+                    <p class="mono-label">Legal</p>
                     <a href="/contact">Contact</a>
                     <a href="/privacy">Privacy</a>
                     <a href="/terms">Terms</a>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 TheOther Intelligence LLC.</span>
             </div>
         </div>
     </footer>

@@ -1,11 +1,7 @@
-// Constants
+// Oria AI — storytelling scroll + newsletter
 const REFERRAL_STORAGE_KEY = 'oria_referral_code';
 const ORIA_RUNTIME = window.__ORIA_RUNTIME__ || {};
 const FUNCTIONS_BASE_URL = ORIA_RUNTIME.functionsBaseUrl || "";
-
-if (!FUNCTIONS_BASE_URL) {
-    throw new Error("[waitlist] Missing runtime functionsBaseUrl config.");
-}
 
 function sanitizeReferralCode(rawCode) {
     if (!rawCode) return null;
@@ -58,139 +54,253 @@ async function getAppCheckHeader() {
     return { "X-Firebase-AppCheck": token };
 }
 
-// GSAP Animations (Soft Precision)
-function initializeAnimations() {
-    if (typeof gsap !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
 
-        // Initial Hero Reveal
-        const tl = gsap.timeline();
-        
-        if (document.querySelector('.hero-title')) {
-            const showcase = document.querySelector('.hero-showcase-img');
-            if (showcase) {
-                gsap.set(showcase, { opacity: 0, y: 36, scale: 0.97 });
-            }
-
-            tl.fromTo('.hero-title .line-1', 
-                { y: 40, opacity: 0 }, 
-                { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out', delay: 0.2 }
-            )
-            .fromTo('.hero-title .line-2', 
-                { y: 40, opacity: 0 }, 
-                { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' }, 
-                "-=0.9"
-            )
-            .fromTo('.hero-subtitle',
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-                "-=0.6"
-            )
-            .fromTo('.home-invite-panel-hero',
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-                "-=0.35"
-            );
-
-            if (showcase) {
-                tl.fromTo(
-                    showcase,
-                    { opacity: 0, y: 36, scale: 0.97 },
-                    { opacity: 1, y: 0, scale: 1, duration: 1.15, ease: 'power3.out' },
-                    '>'
-                );
-            }
-        }
-
-        // Subtle parallax for gradient orbs
-        gsap.utils.toArray('.gradient-orb').forEach((orb, i) => {
-            gsap.to(orb, {
-                y: "30%",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1.5
-                }
-            });
-        });
-
-        // Scroll Reveal Elements
-        const revealElements = [
-            '.vision-container .section-title',
-            '.vision-content p',
-            '.ecosystem-container .section-title',
-            '.ecosystem-container .section-subtitle',
-            '.app-category',
-            '.journey-step',
-            '.editorial-card',
-            '.home-invite-panel-end',
-            '.resolution-title',
-            '.resolution-desc',
-            '.minimal-form'
-        ];
-
-        revealElements.forEach(selector => {
-            gsap.utils.toArray(selector).forEach(el => {
-                gsap.fromTo(el, 
-                    { y: 50, opacity: 0 },
-                    {
-                        y: 0, 
-                        opacity: 1, 
-                        duration: 1, 
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: el,
-                            start: "top 85%",
-                            toggleActions: "play none none none"
-                        }
-                    }
-                );
-            });
-        });
-    }
-
-    // Navbar Scroll Effect
+function initializeChrome() {
+    const header = document.querySelector('.site-header');
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // Mobile Menu
+    const hero = document.querySelector('.hero');
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const menuIcon = mobileToggle?.querySelector('i');
-    
-    if (mobileToggle && menuIcon) {
-        mobileToggle.addEventListener('click', () => {
-            const isOpen = navLinks.style.display === 'flex';
-            if (isOpen) {
-                navLinks.style.display = 'none';
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'var(--bg-canvas)';
-                navLinks.style.padding = '2rem';
-                navLinks.style.borderBottom = '1px solid rgba(17,17,17,0.05)';
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
+
+    const syncHeader = () => {
+        const scrolled = window.scrollY > 40;
+        if (header) {
+            header.classList.toggle('is-scrolled', scrolled);
+            if (hero) {
+                const heroBottom = hero.offsetTop + hero.offsetHeight;
+                header.classList.toggle('is-over-hero', window.scrollY < heroBottom - 80);
             }
+        }
+        if (navbar) {
+            navbar.classList.toggle('scrolled', scrolled);
+        }
+    };
+
+    syncHeader();
+    window.addEventListener('scroll', syncHeader, { passive: true });
+
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('is-open');
+            mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            mobileToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                mobileToggle.setAttribute('aria-label', 'Open menu');
+            });
         });
     }
 }
 
-// Newsletter signup form (Firebase)
+function initializeValues() {
+    const items = Array.from(document.querySelectorAll('.value-item'));
+    if (!items.length) return;
+
+    items.forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            items.forEach((el) => el.classList.remove('is-active'));
+            item.classList.add('is-active');
+        });
+        item.addEventListener('focus', () => {
+            items.forEach((el) => el.classList.remove('is-active'));
+            item.classList.add('is-active');
+        });
+        item.addEventListener('click', () => {
+            items.forEach((el) => el.classList.remove('is-active'));
+            item.classList.add('is-active');
+        });
+    });
+}
+
+function initializeAnimations() {
+    initializeChrome();
+    initializeValues();
+
+    if (typeof gsap === 'undefined' || prefersReducedMotion()) {
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero entrance
+    if (document.querySelector('.hero-title')) {
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl.fromTo('.hero-brand', { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1 })
+            .fromTo('.hero-italic', { y: 48, opacity: 0 }, { y: 0, opacity: 1, duration: 1.15 }, '-=0.65')
+            .fromTo('.hero-roman', { y: 48, opacity: 0 }, { y: 0, opacity: 1, duration: 1.15 }, '-=0.85')
+            .fromTo('.hero-subtitle', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, '-=0.55')
+            .fromTo('.hero-actions', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.45')
+            .fromTo('.hero-scroll-hint', { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.2');
+
+        gsap.to('.hero-wash', {
+            yPercent: 28,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            },
+        });
+
+        gsap.to('.hero-inner', {
+            yPercent: 12,
+            opacity: 0.35,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true,
+            },
+        });
+    }
+
+    // Featured parallax
+    if (document.querySelector('.featured-img')) {
+        gsap.fromTo('.featured-card',
+            { y: 60, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: '.featured',
+                    start: 'top 80%',
+                },
+            }
+        );
+
+        gsap.to('.featured-img', {
+            yPercent: 12,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.featured',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true,
+            },
+        });
+    }
+
+    // Vision storytelling
+    if (document.querySelector('.vision-grid')) {
+        gsap.from('.vision-sticky .display-heading', {
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: '.vision', start: 'top 75%' },
+        });
+
+        gsap.utils.toArray('.vision-scroll p, .vision-art').forEach((el, i) => {
+            gsap.from(el, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.08,
+                ease: 'power3.out',
+                scrollTrigger: { trigger: el, start: 'top 85%' },
+            });
+        });
+
+        if (document.querySelector('.vision-art img')) {
+            gsap.to('.vision-art img', {
+                yPercent: 10,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.vision-art',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                },
+            });
+        }
+    }
+
+    // Capability cards stagger
+    gsap.utils.toArray('.cap-card').forEach((card, i) => {
+        gsap.from(card, {
+            y: 48,
+            opacity: 0,
+            duration: 0.9,
+            delay: (i % 5) * 0.06,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: card, start: 'top 88%' },
+        });
+    });
+
+    // Mission band
+    if (document.querySelector('.mission')) {
+        gsap.from('.mission-heading, .mission-body', {
+            y: 40,
+            opacity: 0,
+            duration: 1.1,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: '.mission', start: 'top 75%' },
+        });
+
+        gsap.to('.mission-orb-a', {
+            y: 120,
+            x: 40,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.mission',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.2,
+            },
+        });
+
+        gsap.to('.mission-orb-b', {
+            y: -90,
+            x: -30,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.mission',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.2,
+            },
+        });
+    }
+
+    // Ecosystem / values / editorial / resolution reveals
+    const revealSelectors = [
+        '.eco-col',
+        '.value-item',
+        '.editorial-card',
+        '.resolution-invite',
+        '.resolution-form-block',
+        '.section-intro',
+    ];
+
+    revealSelectors.forEach((selector) => {
+        gsap.utils.toArray(selector).forEach((el, i) => {
+            gsap.from(el, {
+                y: 36,
+                opacity: 0,
+                duration: 0.85,
+                delay: Math.min(i * 0.05, 0.3),
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 90%',
+                },
+            });
+        });
+    });
+}
+
 function initializeWaitlistForm() {
     const form = document.getElementById('waitlist-form');
     const emailInput = document.getElementById('waitlist-email');
@@ -198,7 +308,11 @@ function initializeWaitlistForm() {
     const messageDiv = document.getElementById('waitlist-message');
 
     if (!form || !emailInput || !submitButton || !messageDiv) {
-        console.error('Newsletter form elements not found');
+        return;
+    }
+
+    if (!FUNCTIONS_BASE_URL) {
+        console.error('[waitlist] Missing runtime functionsBaseUrl config.');
         return;
     }
 
@@ -259,7 +373,6 @@ function initializeWaitlistForm() {
 
             showWaitlistMessage("Thanks! You're signed up. Watch your inbox for updates and offers.", 'success');
             emailInput.value = '';
-
         } catch (error) {
             console.error('Error submitting newsletter signup:', error);
             showWaitlistMessage('A connection error occurred. Please try again.', 'error');
@@ -298,11 +411,8 @@ function showWaitlistMessage(message, type) {
     }
 }
 
-// Initialize features
 document.addEventListener('DOMContentLoaded', () => {
     initializeAnimations();
-    
-    // Initialize newsletter signup
     setTimeout(() => {
         initializeWaitlistForm();
     }, 100);

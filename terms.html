@@ -10,36 +10,36 @@
     <link rel="canonical" href="https://oria.me/terms">
     <link rel="icon" href="/assets/favicon.png" type="image/png">
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="background-canvas">
-        <div class="gradient-orb orb-sage"></div>
-        <div class="gradient-orb orb-gold"></div>
-        <div class="gradient-orb orb-blue"></div>
-        <div class="noise-overlay"></div>
-    </div>
-    <!-- Minimal Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="/" class="brand-logo">ORIA AI</a>
-            <div class="nav-links">
-                <a href="/#vision" class="nav-item">Vision</a>
-                <a href="/#ecosystem" class="nav-item">Ecosystem</a>
-                <a href="/blog/" class="nav-item">Blog</a>
-                <a href="/#newsletter" class="nav-item">Newsletter</a>
+        <header class="site-header is-scrolled">
+        <nav class="navbar" aria-label="Primary">
+            <div class="nav-shell">
+                <a href="/" class="brand-logo" aria-label="Oria AI home">ORIA</a>
+                <div class="nav-links" id="nav-links">
+                    <a href="/#vision" class="nav-item">Vision</a>
+                    <a href="/#capabilities" class="nav-item">Capabilities</a>
+                    <a href="/#values" class="nav-item">Values</a>
+                    <a href="/blog/" class="nav-item">Blog</a>
+                    <a href="/app/#/login" class="nav-item">Log in</a>
+                    <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152" class="nav-cta">Try Oria</a>
+                </div>
+                <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                    <span></span><span></span>
+                </button>
             </div>
-            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
 
     <!-- Terms of Service Content -->
     <div class="legal-page">
-        <a href="/" class="back-link">
-            <i class="fas fa-arrow-left"></i>
-            Back to Home
-        </a>
+        <a href="/" class="back-link">← Back to Home</a>
 
         <h1>Terms of Service</h1>
         <p class="last-updated">Last Updated: March 2026</p>
@@ -129,27 +129,36 @@
     </div>
 
     <!-- Refined Footer -->
-    <footer class="minimal-footer">
-        <div class="container footer-container">
-            <div class="footer-top">
-                <div class="footer-brand">ORIA AI</div>
-                <div class="footer-social">
-                    <a href="https://discord.gg/Vxzb2NW9nx" target="_blank" rel="noopener noreferrer">Discord</a>
-                    <a href="https://x.com/OriaAI_official" target="_blank" rel="noopener noreferrer">Twitter</a>
-                    <a href="https://www.linkedin.com/company/theother-intelligence/" target="_blank"
-                        rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://instagram.com/oriaai.official" target="_blank"
-                        rel="noopener noreferrer">Instagram</a>
-                </div>
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-block">
+                <div class="footer-brand">ORIA</div>
+                <p class="footer-tagline">An evolvable personal AI for intentional living.</p>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-copy">&copy; 2026 TheOther Intelligence LLC.</div>
-                <div class="footer-legal">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <p class="mono-label">Explore</p>
+                    <a href="/#vision">Vision</a>
+                    <a href="/#capabilities">Capabilities</a>
+                    <a href="/blog/">Blog</a>
                     <a href="/about">About</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-label">Connect</p>
+                    <a href="https://discord.gg/Vxzb2NW9nx" target="_blank" rel="noopener noreferrer">Discord</a>
+                    <a href="https://x.com/OriaAI_official" target="_blank" rel="noopener noreferrer">X</a>
+                    <a href="https://www.linkedin.com/company/theother-intelligence/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://instagram.com/oriaai.official" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-label">Legal</p>
                     <a href="/contact">Contact</a>
                     <a href="/privacy">Privacy</a>
                     <a href="/terms">Terms</a>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 TheOther Intelligence LLC.</span>
             </div>
         </div>
     </footer>
