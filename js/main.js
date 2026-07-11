@@ -149,14 +149,13 @@ function initializeAnimations() {
         });
     }
 
-    // Vision — pinned: giant type + drifting data fragments that converge into wisdom
+    // Vision — pinned scrub on desktop; stacked scroll story on mobile
     const visionPin = document.querySelector('.vision-pin');
     const visionSlides = gsap.utils.toArray('.vision-slide');
     const visionFill = document.querySelector('.vision-progress-fill');
     const visionBgImg = document.querySelector('.vision-bg-img');
     const fragments = gsap.utils.toArray('.fragment');
 
-    // Record each fragment's offset from the section center for convergence
     fragments.forEach((frag) => {
         const left = parseFloat(frag.style.left) || 50;
         const top = parseFloat(frag.style.top) || 50;
@@ -166,51 +165,86 @@ function initializeAnimations() {
     });
 
     if (visionPin && visionSlides.length) {
-        let visionActive = 0;
-        const setVision = (index) => {
-            const next = Math.max(0, Math.min(visionSlides.length - 1, index));
-            if (next === visionActive && visionSlides[next].classList.contains('is-active')) return;
-            visionActive = next;
-            visionSlides.forEach((slide, i) => {
-                slide.classList.toggle('is-active', i === next);
-            });
-        };
+        const visionMm = gsap.matchMedia();
 
-        setVision(0);
-
-        ScrollTrigger.create({
-            trigger: visionPin,
-            start: 'top top',
-            end: () => `+=${visionSlides.length * 95}%`,
-            pin: true,
-            scrub: 0.4,
-            anticipatePin: 1,
-            onUpdate: (self) => {
-                const p = self.progress;
-                if (visionFill) gsap.set(visionFill, { width: `${p * 100}%` });
-                if (visionBgImg) {
-                    gsap.set(visionBgImg, {
-                        scale: 1.08 + p * 0.08,
-                        yPercent: p * 6,
-                    });
-                }
-                // Fragments drift with parallax, then converge + fade toward center
-                fragments.forEach((frag) => {
-                    const drift = (1 - p) * 40 * frag._depth;
-                    const conv = p * p;
-                    gsap.set(frag, {
-                        xPercent: frag._dx * conv * 260,
-                        yPercent: (frag._dy * conv * 260) - drift,
-                        opacity: gsap.utils.clamp(0, 1, (1 - conv * 1.35)),
-                        scale: 1 - conv * 0.35,
-                    });
+        visionMm.add('(min-width: 769px)', () => {
+            let visionActive = 0;
+            const setVision = (index) => {
+                const next = Math.max(0, Math.min(visionSlides.length - 1, index));
+                if (next === visionActive && visionSlides[next].classList.contains('is-active')) return;
+                visionActive = next;
+                visionSlides.forEach((slide, i) => {
+                    slide.classList.toggle('is-active', i === next);
                 });
-                const idx = Math.min(
-                    visionSlides.length - 1,
-                    Math.floor(p * visionSlides.length + 0.001)
-                );
-                setVision(idx);
-            },
+            };
+
+            setVision(0);
+
+            const st = ScrollTrigger.create({
+                trigger: visionPin,
+                start: 'top top',
+                end: () => `+=${visionSlides.length * 95}%`,
+                pin: true,
+                scrub: 0.4,
+                anticipatePin: 1,
+                onUpdate: (self) => {
+                    const p = self.progress;
+                    if (visionFill) gsap.set(visionFill, { width: `${p * 100}%` });
+                    if (visionBgImg) {
+                        gsap.set(visionBgImg, {
+                            scale: 1.08 + p * 0.08,
+                            yPercent: p * 6,
+                        });
+                    }
+                    fragments.forEach((frag) => {
+                        const drift = (1 - p) * 40 * frag._depth;
+                        const conv = p * p;
+                        gsap.set(frag, {
+                            xPercent: frag._dx * conv * 260,
+                            yPercent: (frag._dy * conv * 260) - drift,
+                            opacity: gsap.utils.clamp(0, 1, (1 - conv * 1.35)),
+                            scale: 1 - conv * 0.35,
+                        });
+                    });
+                    const idx = Math.min(
+                        visionSlides.length - 1,
+                        Math.floor(p * visionSlides.length + 0.001)
+                    );
+                    setVision(idx);
+                },
+            });
+
+            return () => {
+                st.kill();
+                if (visionFill) gsap.set(visionFill, { clearProps: 'width' });
+                if (visionBgImg) gsap.set(visionBgImg, { clearProps: 'transform' });
+                gsap.set(fragments, { clearProps: 'transform,opacity' });
+                visionSlides.forEach((slide, i) => {
+                    slide.classList.toggle('is-active', i === 0);
+                });
+            };
+        });
+
+        visionMm.add('(max-width: 768px)', () => {
+            visionSlides.forEach((slide) => slide.classList.add('is-active'));
+
+            const reveal = gsap.from(visionSlides, {
+                y: 28,
+                opacity: 0,
+                duration: 0.75,
+                stagger: 0.14,
+                ease: 'power3.out',
+                scrollTrigger: { trigger: visionPin, start: 'top 78%' },
+            });
+
+            return () => {
+                reveal.scrollTrigger?.kill();
+                reveal.kill();
+                gsap.set(visionSlides, { clearProps: 'transform,opacity' });
+                visionSlides.forEach((slide, i) => {
+                    slide.classList.toggle('is-active', i === 0);
+                });
+            };
         });
     }
 

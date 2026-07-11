@@ -2070,6 +2070,72 @@ a {
         justify-content: center;
     }
 
+    /* Vision: drop pin/scrub stacking — readable vertical story */
+    .vision-pin {
+        min-height: 0;
+        overflow: visible;
+    }
+
+    .vision-bg-img {
+        opacity: 0.18;
+        transform: none;
+        will-change: auto;
+    }
+
+    .vision-bg-veil {
+        background:
+            radial-gradient(ellipse at center, rgba(254, 249, 237, 0.35) 0%, rgba(254, 249, 237, 0.88) 50%, var(--color-parchment) 100%),
+            linear-gradient(180deg, rgba(254, 249, 237, 0.7) 0%, rgba(254, 249, 237, 0.85) 100%);
+    }
+
+    .vision-fragments {
+        display: none;
+    }
+
+    .vision-frame {
+        min-height: 0;
+        justify-content: flex-start;
+        padding: 4.25rem 0 3.5rem;
+    }
+
+    .vision-eyebrow {
+        margin-bottom: 1.5rem;
+    }
+
+    .vision-stage {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        min-height: 0;
+        place-items: stretch;
+    }
+
+    .vision-slide {
+        grid-area: auto;
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        max-width: 100%;
+        transition: none;
+    }
+
+    .vision-giant {
+        font-size: clamp(2.35rem, 11.5vw, 3.25rem);
+        line-height: 1.02;
+    }
+
+    .vision-copy {
+        font-size: clamp(1.05rem, 4.1vw, 1.25rem);
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .vision-progress {
+        display: none;
+    }
+
     .eco-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -2126,12 +2192,6 @@ a {
         grid-row: auto;
         grid-column: 1;
         margin-top: 0.75rem;
-    }
-
-    .fragment[data-depth="0.6"],
-    .fragment[data-depth="1.8"],
-    .fragment[data-depth="0.8"] {
-        display: none;
     }
 
     .form-wrapper {
