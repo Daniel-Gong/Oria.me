@@ -162,8 +162,15 @@ function initializeAnimations() {
     const visionPin = document.querySelector('.vision-pin');
     const visionSlides = gsap.utils.toArray('.vision-slide');
     const visionFill = document.querySelector('.vision-progress-fill');
-    const visionBgImg = document.querySelector('.vision-bg-img');
+    const visionBgLayers = gsap.utils.toArray('.vision-bg-layer');
     const fragments = gsap.utils.toArray('.fragment');
+
+    const setVisionBg = (index) => {
+        const next = Math.max(0, Math.min(visionBgLayers.length - 1, index));
+        visionBgLayers.forEach((layer, i) => {
+            layer.classList.toggle('is-active', i === next);
+        });
+    };
 
     fragments.forEach((frag) => {
         const left = parseFloat(frag.style.left) || 50;
@@ -185,26 +192,24 @@ function initializeAnimations() {
                 visionSlides.forEach((slide, i) => {
                     slide.classList.toggle('is-active', i === next);
                 });
+                setVisionBg(next);
             };
 
             setVision(0);
 
+            // n slides → (n-1) scroll steps, so the last slide ends the pin (no trailing blank scroll)
+            const visionSteps = Math.max(1, visionSlides.length - 1);
+
             const st = ScrollTrigger.create({
                 trigger: visionPin,
                 start: 'top top',
-                end: () => `+=${visionSlides.length * 95}%`,
+                end: () => `+=${visionSteps * 100}%`,
                 pin: true,
                 scrub: 0.4,
                 anticipatePin: 1,
                 onUpdate: (self) => {
                     const p = self.progress;
                     if (visionFill) gsap.set(visionFill, { width: `${p * 100}%` });
-                    if (visionBgImg) {
-                        gsap.set(visionBgImg, {
-                            scale: 1.08 + p * 0.08,
-                            yPercent: p * 6,
-                        });
-                    }
                     fragments.forEach((frag) => {
                         const drift = (1 - p) * 40 * frag._depth;
                         const conv = p * p;
@@ -217,7 +222,7 @@ function initializeAnimations() {
                     });
                     const idx = Math.min(
                         visionSlides.length - 1,
-                        Math.floor(p * visionSlides.length + 0.001)
+                        Math.round(p * visionSteps)
                     );
                     setVision(idx);
                 },
@@ -226,16 +231,17 @@ function initializeAnimations() {
             return () => {
                 st.kill();
                 if (visionFill) gsap.set(visionFill, { clearProps: 'width' });
-                if (visionBgImg) gsap.set(visionBgImg, { clearProps: 'transform' });
                 gsap.set(fragments, { clearProps: 'transform,opacity' });
                 visionSlides.forEach((slide, i) => {
                     slide.classList.toggle('is-active', i === 0);
                 });
+                setVisionBg(0);
             };
         });
 
         visionMm.add('(max-width: 768px)', () => {
             visionSlides.forEach((slide) => slide.classList.add('is-active'));
+            setVisionBg(0);
 
             const reveal = gsap.from(visionSlides, {
                 y: 28,
@@ -246,13 +252,25 @@ function initializeAnimations() {
                 scrollTrigger: { trigger: visionPin, start: 'top 78%' },
             });
 
+            const bgTriggers = visionSlides.map((slide, i) =>
+                ScrollTrigger.create({
+                    trigger: slide,
+                    start: 'top 65%',
+                    end: 'bottom 35%',
+                    onEnter: () => setVisionBg(i),
+                    onEnterBack: () => setVisionBg(i),
+                })
+            );
+
             return () => {
                 reveal.scrollTrigger?.kill();
                 reveal.kill();
+                bgTriggers.forEach((t) => t.kill());
                 gsap.set(visionSlides, { clearProps: 'transform,opacity' });
                 visionSlides.forEach((slide, i) => {
                     slide.classList.toggle('is-active', i === 0);
                 });
+                setVisionBg(0);
             };
         });
     }
