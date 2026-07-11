@@ -204,7 +204,7 @@ const NAV = `
     <header class="site-header is-scrolled">
         <nav class="navbar" aria-label="Primary">
             <div class="nav-shell">
-                <a href="/" class="brand-logo" aria-label="Oria AI home">ORIA</a>
+                <a href="/" class="brand-logo" aria-label="Oria AI home">ORIA AI</a>
                 <div class="nav-links" id="nav-links">
                     <a href="/#vision" class="nav-item">Vision</a>
                     <a href="/#capabilities" class="nav-item">Capabilities</a>
@@ -224,7 +224,7 @@ const FOOTER = `
     <footer class="site-footer">
         <div class="container footer-grid">
             <div class="footer-brand-block">
-                <div class="footer-brand">ORIA</div>
+                <div class="footer-brand">ORIA AI</div>
                 <p class="footer-tagline">An evolvable personal AI for intentional living.</p>
             </div>
             <div class="footer-cols">
@@ -362,7 +362,6 @@ ${NAV}
         <div class="container">
             <a href="/" class="back-link">← Back to Home</a>
             <div class="section-header">
-                <p class="mono-label">Field notes</p>
                 <h1>Blog</h1>
                 <p>Insights on personal AI, well-being, and your evolvable digital self</p>
             </div>
