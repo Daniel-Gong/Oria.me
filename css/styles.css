@@ -1173,11 +1173,6 @@ a {
     text-align: center;
 }
 
-.resolution-center .invite-code-display {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .resolution-actions {
     justify-content: center;
 }
@@ -1190,18 +1185,6 @@ a {
 .resolution-form-block .minimal-form {
     max-width: 28rem;
     margin: 0 auto;
-}
-
-.invite-code-display {
-    display: inline-flex;
-    font-family: var(--font-mono);
-    font-size: 1.5rem;
-    letter-spacing: 0.28em;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid var(--color-linen);
-    border-radius: 12px;
-    background: var(--color-parchment);
-    margin-bottom: 1.25rem;
 }
 
 .resolution-title {
@@ -1914,67 +1897,6 @@ a {
 
 .hidden {
     display: none !important;
-}
-
-/* ——— Home invite panels (legacy class hooks) ——— */
-.home-invite-panel {
-    background: var(--color-bone);
-    border-radius: var(--radius-card);
-    padding: 2rem;
-}
-
-.home-invite-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-cedar);
-}
-
-.home-invite-code {
-    font-family: var(--font-mono);
-    letter-spacing: 0.22em;
-    margin: 0.75rem 0 1rem;
-}
-
-.home-invite-title {
-    font-size: 1.75rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-}
-
-.home-invite-desc {
-    color: var(--color-cedar);
-    margin-bottom: 1.25rem;
-}
-
-.home-invite-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.home-invite-primary {
-    display: inline-flex;
-    align-items: center;
-    min-height: 3rem;
-    padding: 0.75rem 1.35rem;
-    border-radius: var(--radius-pill);
-    background: var(--color-library-ink);
-    color: var(--color-parchment);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-}
-
-.home-invite-secondary {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    text-decoration: none;
-    color: var(--color-walnut);
 }
 
 /* ——— Responsive ——— */
