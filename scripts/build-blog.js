@@ -247,6 +247,7 @@ const FOOTER = `
                     <a href="/contact">Contact</a>
                     <a href="/privacy">Privacy</a>
                     <a href="/terms">Terms</a>
+                    <a href="/delete-account">Delete account</a>
                 </div>
             </div>
             <div class="footer-bottom">

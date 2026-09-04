@@ -38,6 +38,7 @@ The sibling backend repo owns canonical backend contracts and backend internals:
 - Landing/newsletter flow: `index.html` + `js/main.js`
 - Invite deep-link landing: `invite.html` + `js/invite.js`
 - Profile deep-link landing: `profile.html` + `js/profile.js`
+- Account deletion (Play store URL): `delete-account.html` + `js/delete-account.js`
 - Admin surface: `admin/index.html`
 - **Authenticated app portal:** `app/` (Vite + React), deployed under **`/app/`** on GitHub Pages (`https://oria.me/app/`). Uses **Firebase Auth + Firestore** in the browser for signed-in users (same project as iOS). See `app/README.md`.
 - Optional local/dev proxy server: `server/server.js`
@@ -48,5 +49,6 @@ The sibling backend repo owns canonical backend contracts and backend internals:
 - Invite validation endpoint
 - Admin waitlist and invite-code endpoints
 - **App portal:** direct Firestore reads/writes under `users/{uid}/…` for notes, moments, insights, profile, memories (see TheOtherME `docs/backend/firestore-and-storage.md`); no new HTTP endpoints required for the MVP portal.
+- **Account deletion:** Firebase Auth `user.delete()` from `delete-account.html` and the app portal Profile page (same as the iOS and Android apps).
 
 For the canonical contract definitions and backend source files, use the sibling backend docs rather than this page.

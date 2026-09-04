@@ -372,9 +372,29 @@ input.readonly {
   background: rgba(17, 17, 17, 0.05);
 }
 
+.btn.danger {
+  background: #b42318;
+  color: #fff;
+  border-color: transparent;
+}
+
+.btn.danger:hover:not(:disabled) {
+  background: #912018;
+}
+
 .btn.danger.ghost {
+  background: transparent;
   border-color: rgba(180, 35, 24, 0.25);
   color: #b42318;
+}
+
+.danger-zone {
+  margin-top: 1.5rem;
+}
+
+.danger-zone h2 {
+  margin: 0;
+  font-size: 1.15rem;
 }
 
 .btn:disabled {

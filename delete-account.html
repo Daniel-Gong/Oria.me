@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Oria AI</title>
+    <meta name="description"
+        content="Request or complete deletion of your Oria AI account and associated data. Offered by TheOther Intelligence LLC.">
+    <link rel="canonical" href="https://oria.me/delete-account">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,500;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header is-scrolled">
+        <nav class="navbar" aria-label="Primary">
+            <div class="nav-shell">
+                <a href="/" class="brand-logo" aria-label="Oria AI home">ORIA AI</a>
+                <div class="nav-links" id="nav-links">
+                    <a href="/#vision" class="nav-item">Vision</a>
+                    <a href="/#capabilities" class="nav-item">Capabilities</a>
+                    <a href="/#values" class="nav-item">Values</a>
+                    <a href="/blog/" class="nav-item">Blog</a>
+                    <a href="/app/#/login" class="nav-item">Log in</a>
+                    <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152" class="nav-cta">Try Oria</a>
+                </div>
+                <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="legal-page">
+        <a href="/" class="back-link">← Back to Home</a>
+
+        <h1>Delete your Oria AI account</h1>
+        <p class="last-updated">TheOther Intelligence LLC · Last updated September 2026</p>
+
+        <div class="highlight-box">
+            <p><strong>This page is for the Oria AI app</strong> (iOS and Android, developer
+                <strong>TheOther Intelligence LLC</strong>). Use it to request or complete deletion of your
+                account and the personal data we store with it. Deletion is permanent.</p>
+        </div>
+
+        <h2>How to delete your account</h2>
+        <ol class="delete-steps">
+            <li><strong>On this page.</strong> Sign in with the same email, Google, or Apple account you use
+                for Oria AI, then confirm deletion below.</li>
+            <li><strong>In the Oria AI app.</strong> Open Account → About → Delete Account, then confirm.
+                This is available on both iOS and Android.</li>
+            <li><strong>By email.</strong> If you cannot sign in, write to
+                <a href="mailto:privacy@theother.me?subject=Oria%20AI%20account%20deletion%20request">privacy@theother.me</a>
+                from the address on the account and ask us to delete it. We complete email requests within
+                30 days.</li>
+        </ol>
+        <p>Cancel any Apple or Google Play subscription separately in that store. Deleting your Oria AI
+            account does not automatically stop store billing.</p>
+
+        <section class="delete-panel" id="delete-panel" aria-labelledby="delete-panel-heading">
+            <h2 id="delete-panel-heading">Delete on this page</h2>
+            <p>Sign in, then confirm. This uses the same Oria AI account as the iOS and Android apps.</p>
+
+            <p id="delete-config-error" class="delete-status is-error" hidden>
+                Self-serve deletion is temporarily unavailable. Email
+                <a href="mailto:privacy@theother.me">privacy@theother.me</a> and we will delete the account.
+            </p>
+
+            <div id="delete-signed-out">
+                <div class="delete-oauth-row">
+                    <button type="button" class="btn-pill btn-pill-dark" id="delete-google-btn">Continue with Google</button>
+                    <button type="button" class="btn-pill btn-pill-dark" id="delete-apple-btn">Continue with Apple</button>
+                </div>
+                <p class="delete-or">or</p>
+                <form id="delete-signin-form" class="delete-form" novalidate>
+                    <label class="delete-field">
+                        <span>Email</span>
+                        <input id="delete-email" type="email" autocomplete="username" required>
+                    </label>
+                    <label class="delete-field">
+                        <span>Password</span>
+                        <input id="delete-password" type="password" autocomplete="current-password" required>
+                    </label>
+                    <button type="submit" class="btn-pill btn-pill-dark" id="delete-email-btn">Sign in</button>
+                </form>
+            </div>
+
+            <div id="delete-signed-in" hidden>
+                <p class="delete-signed-as">Signed in as <strong id="delete-user-label"></strong></p>
+                <form id="delete-confirm-form" class="delete-form">
+                    <label class="delete-check">
+                        <input id="delete-confirm" type="checkbox" required>
+                        <span>I understand this permanently deletes my Oria AI account and associated data, and cannot be undone.</span>
+                    </label>
+                    <div class="delete-actions">
+                        <button type="submit" class="btn-pill btn-pill-danger" id="delete-submit-btn">Delete my Oria AI account</button>
+                        <button type="button" class="btn-text-link dark" id="delete-signout-btn">Sign out</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="delete-done" hidden>
+                <p class="delete-status is-success">Your Oria AI account has been deleted. You are signed out
+                    on this device. Associated personal data is removed from our production systems with the
+                    account; residual backups are purged within 30 days.</p>
+            </div>
+
+            <p id="delete-status" class="delete-status" hidden></p>
+        </section>
+
+        <h2>Data that is deleted</h2>
+        <p>When you delete your Oria AI account, we delete:</p>
+        <ul>
+            <li>Your sign-in account (email and authentication credentials)</li>
+            <li>Profile information (name, username, addresses, and other profile fields you entered)</li>
+            <li>Conversations with Oria, notes, mood check-ins, insights, memories, and coaching plans</li>
+            <li>Location history, place labels, and other device-synced activity stored in Oria</li>
+            <li>Social posts you created in Moments, plus your likes and comments</li>
+            <li>App preferences, notification settings, and connected-service tokens stored by Oria</li>
+        </ul>
+
+        <h2>Data that may be kept, and for how long</h2>
+        <ul>
+            <li><strong>Store billing records.</strong> Apple and Google keep their own purchase and
+                subscription records. Cancel in the App Store or Google Play if you have an active plan.
+                We may retain limited billing identifiers as required for tax, accounting, or fraud
+                prevention, typically up to the period required by law (often up to 7 years for tax records).</li>
+            <li><strong>Legal and security records.</strong> We may keep a minimal record of the deletion
+                request (for example, that an account was deleted and when) as needed to handle disputes
+                or abuse.</li>
+            <li><strong>Backups.</strong> Copies in routine backups are purged within 30 days.</li>
+            <li><strong>Third-party AI providers.</strong> Data already sent to providers such as OpenAI,
+                Anthropic, or Google to generate a response cannot be recalled from those providers. We
+                do not keep sending them data after your account is deleted. See our
+                <a href="/privacy">Privacy Policy</a>.</li>
+            <li><strong>Waitlist or newsletter.</strong> These are separate from the app account. Email
+                <a href="mailto:privacy@theother.me">privacy@theother.me</a> if you also want those
+                addresses removed.</li>
+        </ul>
+
+        <h2>Questions</h2>
+        <p>Privacy requests: <a href="mailto:privacy@theother.me">privacy@theother.me</a>. Company:
+            TheOther Intelligence LLC. See also <a href="/privacy">Privacy</a> and
+            <a href="/contact">Contact</a>.</p>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand-block">
+                <div class="footer-brand">ORIA AI</div>
+                <p class="footer-tagline">An evolvable personal AI for intentional living.</p>
+            </div>
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <p class="mono-label">Explore</p>
+                    <a href="/#vision">Vision</a>
+                    <a href="/#capabilities">Capabilities</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/about">About</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-label">Connect</p>
+                    <a href="https://discord.gg/Vxzb2NW9nx" target="_blank" rel="noopener noreferrer">Discord</a>
+                    <a href="https://x.com/OriaAI_official" target="_blank" rel="noopener noreferrer">X</a>
+                    <a href="https://www.linkedin.com/company/theother-intelligence/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://instagram.com/oriaai.official" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-label">Legal</p>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/delete-account">Delete account</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 TheOther Intelligence LLC.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/config/runtime-config.js"></script>
+    <script type="module" src="/js/delete-account.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

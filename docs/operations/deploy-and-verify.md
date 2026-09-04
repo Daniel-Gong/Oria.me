@@ -18,7 +18,8 @@ From `../TheOtherME/backend/functions`:
 - Confirm deployed artifact includes:
   - `js/config/runtime-config.js`
   - `js/config/firebase-app.js`
-  - updated `js/main.js`, `js/invite.js`, `admin/index.html`
+  - updated `js/main.js`, `js/invite.js`, `js/delete-account.js`, `admin/index.html`
+  - `delete-account.html` (Play Console delete-account URL)
   - **`app/index.html`** and **`app/assets/*`** (Vite app portal under `/app/`)
 
 ## Smoke tests
@@ -48,6 +49,10 @@ From `../TheOtherME/backend/functions`:
 7. **App portal**
    - Open `https://oria.me/app/#/login`, sign in with a test user (email or Google).
    - Confirm `/#/notes` loads and a test note round-trips with the iOS app (same Firestore path).
+8. **Account deletion page**
+   - Open `https://oria.me/delete-account`.
+   - Confirm the page names Oria AI / TheOther Intelligence LLC, lists in-app and web steps, and states data deleted vs kept plus retention.
+   - On a disposable test account, sign in and complete deletion; confirm Firebase Auth no longer accepts that user.
 
 ## Rollback notes
 

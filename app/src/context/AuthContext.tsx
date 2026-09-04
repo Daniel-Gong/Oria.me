@@ -14,6 +14,7 @@ import {
   browserSessionPersistence,
   onAuthStateChanged,
   setPersistence,
+  deleteUser,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -31,6 +32,7 @@ export type AuthContextValue = {
   signInGoogle: (persistence: SignInPersistence) => Promise<void>;
   signInApple: (persistence: SignInPersistence) => Promise<void>;
   logOut: () => Promise<void>;
+  deleteAccount: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -99,9 +101,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await signOut(getFirebaseAuth());
   }, []);
 
+  const deleteAccount = useCallback(async () => {
+    const current = getFirebaseAuth().currentUser;
+    if (!current) {
+      throw new Error("Not signed in");
+    }
+    await deleteUser(current);
+  }, []);
+
   const value = useMemo(
-    () => ({ user, ready, signInEmail, signInGoogle, signInApple, logOut }),
-    [user, ready, signInEmail, signInGoogle, signInApple, logOut],
+    () => ({ user, ready, signInEmail, signInGoogle, signInApple, logOut, deleteAccount }),
+    [user, ready, signInEmail, signInGoogle, signInApple, logOut, deleteAccount],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

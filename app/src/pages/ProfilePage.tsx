@@ -17,7 +17,7 @@ type ProfileForm = {
 };
 
 export function ProfilePage() {
-  const { user } = useAuth();
+  const { user, deleteAccount } = useAuth();
   const [form, setForm] = useState<ProfileForm>({
     username: "",
     displayName: "",
@@ -33,6 +33,8 @@ export function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const load = useCallback(async () => {
     if (!user) {
@@ -193,6 +195,50 @@ export function ProfilePage() {
           </button>
         </form>
       )}
+      {loading ? null : <section className="card stack danger-zone">
+        <h2>Delete account</h2>
+        <p className="muted">
+          Permanently delete your Oria AI account and associated data. This cannot be undone.{" "}
+          <a href="https://oria.me/delete-account">What is deleted</a>
+        </p>
+        {confirmDelete ? (
+          <div className="row gap">
+            <button
+              type="button"
+              className="btn danger"
+              disabled={deleting}
+              onClick={() => {
+                void (async () => {
+                  setDeleting(true);
+                  setError(null);
+                  try {
+                    await deleteAccount();
+                  } catch (e: unknown) {
+                    const code = e && typeof e === "object" && "code" in e ? String(e.code) : "";
+                    setError(
+                      code === "auth/requires-recent-login"
+                        ? "Sign out, sign in again, then retry. Or use oria.me/delete-account."
+                        : e instanceof Error
+                          ? e.message
+                          : "Delete failed",
+                    );
+                    setDeleting(false);
+                  }
+                })();
+              }}
+            >
+              {deleting ? "Deleting…" : "Confirm delete"}
+            </button>
+            <button type="button" className="btn ghost" disabled={deleting} onClick={() => setConfirmDelete(false)}>
+              Cancel
+            </button>
+          </div>
+        ) : (
+          <button type="button" className="btn danger ghost" onClick={() => setConfirmDelete(true)}>
+            Delete account
+          </button>
+        )}
+      </section>}
     </div>
   );
 }

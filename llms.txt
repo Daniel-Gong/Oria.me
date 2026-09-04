@@ -12,6 +12,7 @@ Oria AI is offered by TheOther Intelligence LLC. The canonical public site is ht
 - [Contact](https://oria.me/contact): Company details, email contacts (including contact@theother.me for collaborations and user support), and official social channels.
 - [Privacy policy](https://oria.me/privacy): Privacy practices and how to reach the privacy team.
 - [Terms of service](https://oria.me/terms): Legal terms for use of the site and services.
+- [Delete account](https://oria.me/delete-account): Delete an Oria AI account and associated data, or request deletion by email.
 
 ## Blog articles
 

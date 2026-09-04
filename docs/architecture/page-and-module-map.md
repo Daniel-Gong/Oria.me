@@ -16,6 +16,10 @@ This page is the website-side map of pages and JavaScript entrypoints.
   - main client module: `js/profile.js`
 - `privacy.html`, `terms.html`, `slideshow.html`, `404.html`
   - mostly static pages
+- `delete-account.html`
+  - Play / store account-deletion URL (`https://oria.me/delete-account`)
+  - static disclosure (app name, steps, data deleted vs kept) plus sign-in + Firebase `user.delete()`
+  - main client module: `js/delete-account.js`
 
 ## Admin Page
 
@@ -40,6 +44,8 @@ This page is the website-side map of pages and JavaScript entrypoints.
   - stores referral code, handles deep linking, and preserves attribution
 - `js/profile.js`
   - handles profile deep-link landing and fallback UX
+- `js/delete-account.js`
+  - Firebase Auth sign-in (email, Google, Apple) and `user.delete()` on the public delete-account page
 
 ## Local/Server Utilities
 

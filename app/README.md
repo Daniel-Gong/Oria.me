@@ -6,6 +6,7 @@ Authenticated web surface for existing Firebase users: notes, moments, insights 
 
 - **Production (GitHub Pages):** `https://oria.me/app/` (hash routes, e.g. `https://oria.me/app/#/notes`).
 - **Subdomain:** Point `app.oria.me` at the same hosting and path, or configure a reverse proxy to serve `/app/`.
+- **Account deletion (Play / public URL):** `https://oria.me/delete-account`. Signed-in portal users can also delete from Profile.
 
 ## Local development
 
