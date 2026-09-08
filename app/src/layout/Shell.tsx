@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { AppAtmosphere } from "./AppAtmosphere";
 
 const links = [
   { to: "/", label: "Home" },
@@ -15,12 +16,7 @@ export function Shell({ children }: { children: ReactNode }) {
   const { user, logOut } = useAuth();
   return (
     <div className="shell">
-      <div className="app-background" aria-hidden="true">
-        <div className="gradient-orb orb-sage" />
-        <div className="gradient-orb orb-gold" />
-        <div className="gradient-orb orb-blue" />
-        <div className="noise-overlay" />
-      </div>
+      <AppAtmosphere />
       <header className="shell-header">
         <a className="shell-brand" href="#/">
           <span className="shell-logo">Oria AI</span>

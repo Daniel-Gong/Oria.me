@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth, type SignInPersistence } from "../context/AuthContext";
+import { AppAtmosphere } from "../layout/AppAtmosphere";
 
 export function LoginPage() {
   const { user, ready, signInEmail, signInGoogle, signInApple } = useAuth();
@@ -15,6 +16,7 @@ export function LoginPage() {
   if (!ready) {
     return (
       <div className="login-page">
+        <AppAtmosphere />
         <div className="login-card card">
           <p className="muted">Loading…</p>
         </div>
@@ -65,8 +67,11 @@ export function LoginPage() {
 
   return (
     <div className="login-page">
+      <AppAtmosphere />
       <div className="login-card card">
+        <p className="eyebrow">Oria AI</p>
         <h1>Sign in</h1>
+        <p className="page-lede muted">Continue with the same account you use in the app.</p>
         <div className="login-oauth-row login-oauth-first">
           <button type="button" className="btn secondary" disabled={busy} onClick={() => void onGoogle()}>
             Continue with Google

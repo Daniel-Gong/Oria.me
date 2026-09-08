@@ -104,8 +104,13 @@ export function MemoriesPage() {
 
   return (
     <div className="page">
-      <h1>Memories</h1>
-      <p className="muted">User-managed memories (profile-synced entries are hidden here, same as the iOS app).</p>
+      <header className="page-hero">
+        <p className="eyebrow">Long-term</p>
+        <h1 className="page-title">Memories</h1>
+        <p className="page-lede muted">
+          User-managed memories (profile-synced entries are hidden here, same as the iOS app).
+        </p>
+      </header>
       {error ? <p className="error">{error}</p> : null}
       <section className="card stack">
         <h2>Add memory</h2>

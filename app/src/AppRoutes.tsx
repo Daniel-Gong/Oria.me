@@ -1,5 +1,6 @@
 import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
+import { AppAtmosphere } from "./layout/AppAtmosphere";
 import { Shell } from "./layout/Shell";
 import { LoginPage } from "./pages/LoginPage";
 import { HomePage } from "./pages/HomePage";
@@ -13,8 +14,9 @@ function ProtectedLayout() {
   const { user, ready } = useAuth();
   if (!ready) {
     return (
-      <div className="page center muted">
-        <p>Loading…</p>
+      <div className="login-page">
+        <AppAtmosphere />
+        <p className="muted">Loading…</p>
       </div>
     );
   }

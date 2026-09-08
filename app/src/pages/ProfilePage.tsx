@@ -123,7 +123,11 @@ export function ProfilePage() {
 
   return (
     <div className="page">
-      <h1>Profile</h1>
+      <header className="page-hero">
+        <p className="eyebrow">Account</p>
+        <h1 className="page-title">Profile</h1>
+        <p className="page-lede muted">Edit the same profile fields stored with your Oria account.</p>
+      </header>
       {error ? <p className="error">{error}</p> : null}
       {message ? <p className="success">{message}</p> : null}
       {loading ? (

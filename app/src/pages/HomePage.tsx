@@ -35,10 +35,8 @@ export function HomePage() {
   return (
     <div className="page page-wide">
       <header className="page-hero">
+        <p className="eyebrow">{dateLine}</p>
         <h1 className="page-title">{greeting}</h1>
-        <p className="small muted" style={{ margin: "0 0 1rem" }}>
-          {dateLine}
-        </p>
         <p className="page-lede muted">
           Everything here mirrors your Oria iOS app — notes, moments,
           insights, and memories in one calm surface.

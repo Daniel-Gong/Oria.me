@@ -79,7 +79,11 @@ export function NotesPage() {
 
   return (
     <div className="page">
-      <h1>Notes</h1>
+      <header className="page-hero">
+        <p className="eyebrow">Writing</p>
+        <h1 className="page-title">Notes</h1>
+        <p className="page-lede muted">Write and edit notes stored with your Oria account.</p>
+      </header>
       {error ? <p className="error">{error}</p> : null}
       <section className="card stack">
         <h2>New note</h2>
