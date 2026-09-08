@@ -1916,6 +1916,13 @@ a {
     font-size: 1.15rem;
 }
 
+.blog-post-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1rem;
+}
+
 .blog-post-cta-link {
     display: inline-flex;
     align-items: center;

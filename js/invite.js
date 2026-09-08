@@ -1,6 +1,7 @@
 const REFERRAL_STORAGE_KEY = "oria_referral_code";
 const REFERRAL_TS_STORAGE_KEY = "oria_referral_code_ts";
 const APP_STORE_URL = "https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=me.oria";
 const DEEPLINK_FALLBACK_DELAY_MS = 1500;
 const ORIA_RUNTIME = window.__ORIA_RUNTIME__ || {};
 const FUNCTIONS_BASE_URL = ORIA_RUNTIME.functionsBaseUrl || "";
@@ -57,6 +58,7 @@ function showFallbackUI(code, options) {
     const actions = document.getElementById("fallback-actions");
     const openAppBtn = document.getElementById("open-app-btn");
     const testflightBtn = document.getElementById("testflight-btn");
+    const playStoreBtn = document.getElementById("play-store-btn");
     const copyLinkBtn = document.getElementById("copy-link-btn");
     const wechatNotice = document.getElementById("wechat-notice");
     const hintText = document.getElementById("hint-text");
@@ -113,6 +115,15 @@ function showFallbackUI(code, options) {
         if (!fallbackUIBound) {
             testflightBtn.addEventListener("click", () => {
                 trackEvent("invite_cta_clicked", { cta: "install_app_store", code: code || "none" });
+            });
+        }
+    }
+
+    if (playStoreBtn) {
+        playStoreBtn.href = PLAY_STORE_URL;
+        if (!fallbackUIBound) {
+            playStoreBtn.addEventListener("click", () => {
+                trackEvent("invite_cta_clicked", { cta: "install_play_store", code: code || "none" });
             });
         }
     }

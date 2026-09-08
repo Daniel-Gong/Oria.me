@@ -146,7 +146,10 @@ ${relatedItems}
 function buildCtaHtml() {
   return `            <aside class="blog-post-cta">
                 <p class="blog-post-cta-text">Ready to explore your evolvable digital self?</p>
-                <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152" class="blog-post-cta-link">Download on the App Store</a>
+                <div class="blog-post-cta-actions">
+                    <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152" class="blog-post-cta-link">Download on the App Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=me.oria" class="blog-post-cta-link">Download on Google Play</a>
+                </div>
             </aside>`;
 }
 
