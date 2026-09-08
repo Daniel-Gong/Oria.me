@@ -91,4 +91,4 @@ Bio-digital synthesis is the integration of biological and digital data into a u
 
 At Oria AI we believe bio-digital synthesis is the data foundation for an evolvable digital self focused on health and wellness. It's how we move from "you slept 5 hours" to "you slept 5 hours the night before a 7 a.m. flight, after a week of back-to-back meetings—here's what might help." That shift—from isolated metrics to synthesized insight—is where the next generation of personal health and wellness tools will live.
 
-If you're interested in being part of this early, you can [download the app on the App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [join our newsletter](/#newsletter) for updates.
+If you're interested in being part of this early, you can download the app on the [App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [Google Play](https://play.google.com/store/apps/details?id=me.oria), or [join our newsletter](/#newsletter) for updates.

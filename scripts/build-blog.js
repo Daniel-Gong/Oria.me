@@ -212,9 +212,10 @@ const NAV = `
                     <a href="/#vision" class="nav-item">Vision</a>
                     <a href="/#capabilities" class="nav-item">Capabilities</a>
                     <a href="/#values" class="nav-item">Values</a>
+                    <a href="/pricing" class="nav-item">Pricing</a>
                     <a href="/blog/" class="nav-item">Blog</a>
                     <a href="/app/#/login" class="nav-item">Log in</a>
-                    <a href="https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152" class="nav-cta">Try Oria</a>
+                    <a href="/product" class="nav-cta">Try Oria</a>
                 </div>
                 <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
                     <span></span><span></span>
@@ -235,6 +236,8 @@ const FOOTER = `
                     <p class="mono-label">Explore</p>
                     <a href="/#vision">Vision</a>
                     <a href="/#capabilities">Capabilities</a>
+                    <a href="/product">Product</a>
+                    <a href="/pricing">Pricing</a>
                     <a href="/blog/">Blog</a>
                     <a href="/about">About</a>
                 </div>
@@ -442,6 +445,8 @@ function buildSitemap(posts) {
     { loc: `${BASE_URL}/privacy`, changefreq: 'monthly', priority: '0.5' },
     { loc: `${BASE_URL}/terms`, changefreq: 'monthly', priority: '0.5' },
     { loc: `${BASE_URL}/about`, changefreq: 'monthly', priority: '0.6' },
+    { loc: `${BASE_URL}/product`, changefreq: 'monthly', priority: '0.8' },
+    { loc: `${BASE_URL}/pricing`, changefreq: 'monthly', priority: '0.8' },
     { loc: `${BASE_URL}/contact`, changefreq: 'monthly', priority: '0.6' },
     { loc: `${BASE_URL}/slideshow`, changefreq: 'monthly', priority: '0.4' },
   ];

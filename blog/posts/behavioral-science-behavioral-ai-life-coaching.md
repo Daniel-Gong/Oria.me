@@ -166,3 +166,5 @@ In the end, the goal is the same as Oria’s mission in plain language: **wisdom
 - [Why bio-digital synthesis is the frontier of personal health and wellness insight](/blog/bio-digital-synthesis-frontier-of-health.html)
 
 If you are building, researching, or simply thinking hard about the boundary between “assistant” and “coach,” we welcome conversation. The behavioral layer of personal AI is still young—and it should stay **grounded, humble, and human-centered** as it matures.
+
+If you want to try Oria, you can download the app on the [App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [Google Play](https://play.google.com/store/apps/details?id=me.oria), or [join our newsletter](/#newsletter) for updates.

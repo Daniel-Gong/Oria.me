@@ -108,4 +108,4 @@ That need shows up in many forms: burnout, difficulty with life transitions, mis
 
 The most impactful personal AI of the next decade may not be the one that writes the best email or generates the cleverest image. It may be the one that helps you understand your own patterns, see the gap between how you want to live and how you actually live, and make decisions that are informed by your full context—because it was built **around you** from the start.
 
-We are still early. If you want to try a personal AI that is built with this human-centered stance—an evolvable digital self that grows with you—you can [download the app on the App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [join our newsletter](/#newsletter) for updates.
+We are still early. If you want to try a personal AI that is built with this human-centered stance—an evolvable digital self that grows with you—you can download the app on the [App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [Google Play](https://play.google.com/store/apps/details?id=me.oria), or [join our newsletter](/#newsletter) for updates.

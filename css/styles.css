@@ -281,11 +281,11 @@ a {
     transition: color 0.3s ease;
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
 
 .nav-item {
     font-family: var(--font-mono);
@@ -297,6 +297,10 @@ a {
 }
 
 .nav-item:hover {
+    color: var(--color-walnut);
+}
+
+.nav-item[aria-current="page"] {
     color: var(--color-walnut);
 }
 
@@ -2044,6 +2048,251 @@ a {
     display: none !important;
 }
 
+/* ——— Product / Pricing pages ——— */
+.hero.page-hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 8rem 1.5rem 5.5rem;
+}
+
+.hero.page-hero .hero-title {
+    font-size: clamp(2.5rem, 7vw, 5.25rem);
+}
+
+.hero.page-hero .hero-subtitle {
+    max-width: 36rem;
+}
+
+.product-functions {
+    padding: var(--section-gap) 0;
+    background: var(--color-parchment);
+}
+
+.feature-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+    border-top: 1px solid var(--color-linen);
+}
+
+.feature-row:last-child {
+    padding-bottom: 0;
+}
+
+.feature-row.is-reverse .feature-art {
+    order: 2;
+}
+
+.feature-art {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: var(--color-bone);
+}
+
+.feature-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feature-copy h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.85rem, 3.4vw, 2.65rem);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    margin-bottom: 1rem;
+}
+
+.feature-copy p {
+    color: var(--color-cedar);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
+}
+
+.feature-limit {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: var(--color-walnut);
+}
+
+.feature-limit a {
+    color: var(--color-walnut);
+    text-underline-offset: 0.2em;
+}
+
+.feature-limit a:hover {
+    color: var(--color-faded-rose);
+}
+
+.product-pricing-link {
+    display: inline-block;
+    margin-top: 1.75rem;
+}
+
+.pricing-compare {
+    padding: var(--section-gap) 0 0;
+    background: var(--color-parchment);
+}
+
+.compare-list {
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+.compare-row {
+    display: grid;
+    grid-template-columns: minmax(8rem, 0.7fr) 1fr;
+    gap: 1.5rem 2rem;
+    align-items: start;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--color-linen);
+}
+
+.compare-row:last-child {
+    border-bottom: 1px solid var(--color-linen);
+}
+
+.compare-row h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.compare-split {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.compare-split p {
+    color: var(--color-cedar);
+    line-height: 1.45;
+}
+
+.compare-split .mono-label {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.pricing-plans {
+    position: relative;
+    padding: var(--section-gap) 0;
+    background: linear-gradient(180deg, var(--color-parchment) 0%, var(--color-apricot-wash) 42%, var(--color-parchment) 100%);
+    overflow: hidden;
+}
+
+.plans-parallax {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.plans-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+}
+
+.plans-orb-a {
+    width: 420px;
+    height: 420px;
+    background: #f7c4b0;
+    top: 8%;
+    left: -4%;
+}
+
+.plans-orb-b {
+    width: 360px;
+    height: 360px;
+    background: #d9e4d4;
+    bottom: 4%;
+    right: -2%;
+}
+
+.plans-orb-c {
+    width: 260px;
+    height: 260px;
+    background: #e4d7ea;
+    top: 46%;
+    left: 48%;
+    opacity: 0.35;
+}
+
+.plans-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    max-width: 40rem;
+    margin: 0 auto 1.75rem;
+}
+
+.plan-option {
+    background: rgba(254, 249, 237, 0.86);
+    border: 1px solid rgba(93, 82, 75, 0.22);
+    border-radius: var(--radius-card);
+    padding: 2rem 1.75rem 1.85rem;
+    text-align: center;
+}
+
+.plan-option.is-featured {
+    border-color: var(--color-library-ink);
+}
+
+.plan-option h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.65rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.65rem;
+}
+
+.plan-price {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.25rem);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-walnut);
+}
+
+.plan-rate {
+    margin-top: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    color: var(--color-cedar);
+}
+
+.plans-note {
+    max-width: 32rem;
+    margin: 0 auto 1.75rem;
+    text-align: center;
+    color: var(--color-cedar);
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.plans-actions {
+    justify-content: center;
+}
+
+.plans-inner .product-pricing-link {
+    display: flex;
+    justify-content: center;
+}
+
 /* ——— Responsive ——— */
 @media (max-width: 960px) {
     .featured-card {
@@ -2121,6 +2370,31 @@ a {
 
     .footer-cols {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .feature-row,
+    .feature-row.is-reverse {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-row.is-reverse .feature-art {
+        order: 0;
+    }
+
+    .compare-row {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+    .nav-links {
+        gap: 0.85rem;
+    }
+
+    .nav-item {
+        letter-spacing: 0.02em;
     }
 }
 
@@ -2306,6 +2580,20 @@ a {
 
     .footer-cols {
         grid-template-columns: 1fr;
+    }
+
+    .plan-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero.page-hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 7rem 1.25rem 4.5rem;
+    }
+
+    .hero.page-hero .hero-title {
+        font-size: clamp(2.15rem, 10vw, 3.25rem);
     }
 }
 

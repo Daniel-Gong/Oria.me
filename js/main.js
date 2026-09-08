@@ -478,6 +478,14 @@ function initializeAnimations() {
         '.resolution-center .section-intro',
         '.resolution-form-block',
         '.capabilities .section-intro',
+        '.product-functions .section-intro',
+        '.feature-row',
+        '.pricing-compare .section-intro',
+        '.compare-row',
+        '.plans-inner .section-intro',
+        '.plan-option',
+        '.plans-note',
+        '.plans-actions',
     ];
 
     revealSelectors.forEach((selector) => {

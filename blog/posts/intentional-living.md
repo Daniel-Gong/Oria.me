@@ -97,4 +97,4 @@ In each case, the system informs; the user decides. That division of labor is wh
 
 Intentional living is choosing, as much as you can, to live from clarity and purpose rather than from default. It’s a philosophy we share and a design target we take seriously. The evolvable digital self is our technical approach: a representation of you that evolves with your data and supports reflection, explanation, and planning—so that you can see yourself more clearly and act with greater intention.
 
-We’re still early. If you’re interested in trying an evolvable digital self that’s built with intentional living in mind, you can [download the app on the App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [join our newsletter](/#newsletter) for updates.
+We’re still early. If you’re interested in trying an evolvable digital self that’s built with intentional living in mind, you can download the app on the [App Store](https://apps.apple.com/us/app/oria-ai-evolvable-personal-ai/id6758279152) or [Google Play](https://play.google.com/store/apps/details?id=me.oria), or [join our newsletter](/#newsletter) for updates.

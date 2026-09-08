@@ -84,11 +84,15 @@ jobs:
         run: |
           mkdir -p _site _site/.well-known
           cp index.html 404.html CNAME robots.txt llms.txt sitemap.xml .nojekyll _site/
-          for f in privacy.html terms.html about.html contact.html invite.html slideshow.html delete-account.html; do
+          for f in privacy.html terms.html about.html contact.html invite.html slideshow.html delete-account.html product.html pricing.html; do
             [ -f "$f" ] && cp "$f" _site/
           done
+          for page in product pricing; do
+            mkdir -p "_site/$page"
+            cp "$page.html" "_site/$page/index.html"
+          done
           [ -f _redirects ] && cp _redirects _site/
-          for dir in blog assets css js admin; do
+          for dir in blog assets css js admin product pricing; do
             [ -d "$dir" ] && cp -r "$dir" _site/
           done
           if [ -d app/dist ]; then

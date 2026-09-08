@@ -14,6 +14,13 @@ This page is the website-side map of pages and JavaScript entrypoints.
 - `profile.html`
   - profile universal-link/deep-link landing
   - main client module: `js/profile.js`
+- `product.html`
+  - product / Try Oria page (`/product`)
+  - app functions plus App Store and Google Play download CTAs
+  - main client module: `js/main.js`
+- `pricing.html`
+  - Free vs Premium comparison and yearly / monthly plans (`/pricing`)
+  - main client module: `js/main.js`
 - `privacy.html`, `terms.html`, `slideshow.html`, `404.html`
   - mostly static pages
 - `delete-account.html`
