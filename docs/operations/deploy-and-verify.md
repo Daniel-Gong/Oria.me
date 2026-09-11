@@ -51,8 +51,11 @@ From `../TheOtherME/backend/functions`:
    - Confirm `/#/notes` loads and a test note round-trips with the iOS app (same Firestore path).
 8. **Account deletion page**
    - Open `https://oria.me/delete-account`.
-   - Confirm the page names Oria AI / TheOther Intelligence LLC, lists in-app and web steps, and states data deleted vs kept plus retention.
+   - Confirm the page names Oria AI / TheOther Intelligence LLC, lists in-app and web steps, and states data deleted vs kept plus retention (including stored Health Data).
    - On a disposable test account, sign in and complete deletion; confirm Firebase Auth no longer accepts that user.
+9. **Privacy policy**
+   - Open `https://oria.me/privacy`.
+   - Confirm a **Health Data** section (Health Connect / Apple Health / optional Fitbit) and a **Data Retention** section (account lifetime, 30-day backup purge, account deletion). Play Console points here.
 
 ## Rollback notes
 

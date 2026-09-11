@@ -42,33 +42,91 @@
         <a href="/" class="back-link">← Back to Home</a>
 
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: September 2026</p>
+        <p class="last-updated">Last Updated: September 10, 2026</p>
 
         <div class="highlight-box">
-            <p><strong>Oria AI is committed to protecting your privacy. This policy describes how we collect, use, and
-                    protect your information when you use our app and services.</strong></p>
+            <p><strong>Oria AI is committed to protecting your privacy. This policy describes how we collect, use,
+                    retain, and protect your information, including Health Data, when you use our app and
+                    services.</strong></p>
         </div>
 
         <h2>1. Introduction</h2>
         <p>This Privacy Policy applies to Oria AI ("we," "our," or "us"), operated by TheOther Intelligence LLC. It
-            describes how we handle your personal information when you use our website, mobile app, and related
-            services.</p>
+            describes how we handle your personal information when you use our website, mobile apps (iOS and Android),
+            and related services.</p>
 
         <h2>2. Information We Collect</h2>
         <p>We collect information you choose to provide or connect, which may include:</p>
         <ul>
-            <li>Account information (e.g., email)</li>
-            <li>Messages and content you enter in the app (e.g., conversations with Oria AI)</li>
-            <li>Data from services you connect with your permission (e.g., calendar events when you connect Google Calendar)</li>
-            <li>Usage and device information necessary to operate and improve our services</li>
+            <li>Account information (for example, email, display name, and sign-in credentials)</li>
+            <li>Messages, notes, mood check-ins, photos, and other content you enter in the app</li>
+            <li>Health Data, accessed only with your permission (see Section 4)</li>
+            <li>Data from services you connect with your permission (for example, calendar events when you connect
+                Google Calendar or a device calendar)</li>
+            <li>Location history you enable for features such as Today's Journey</li>
+            <li>Photos you allow us to read for optional food analysis, and camera or microphone audio when you use
+                those features</li>
+            <li>App-usage / screen-time information if you grant Usage access (Android) or Screen Time permission (iOS)</li>
+            <li>Usage and device information needed to operate the service (for example, app version and operating
+                system)</li>
         </ul>
 
         <h2>3. How We Use Your Information</h2>
-        <p>We use your information solely to provide, personalize, and improve Oria AI—including powering the features
-            you use within the app. This includes sending certain data to third-party AI services to generate responses
-            and insights (see Section 5 below). We do not sell your personal information.</p>
+        <p>We use your information to provide, personalize, and improve Oria AI, including Timeline, coaching, insights,
+            friend features, and conversations with Oria. This includes sending certain data to third-party AI services
+            to generate responses and insights (see Section 6). We do not sell your personal information. We do not use
+            Health Data for advertising.</p>
 
-        <h2>4. Google User Data (Calendar)</h2>
+        <h2>4. Health Data</h2>
+        <p>Oria AI accesses and collects Health Data so we can show your day, generate wellness insights, support
+            coaching, and answer questions in Ask Oria. We access Health Data only after you grant permission. You can
+            refuse or later revoke that permission in the app, in Health Connect (Android), in Apple Health (iOS), or
+            by disconnecting Fitbit / Google Health.</p>
+
+        <h3>4.1 How we access Health Data</h3>
+        <ul>
+            <li><strong>Android:</strong> we read Health Data from Health Connect with your permission. Types we
+                request: steps, sleep, exercise / workouts, heart rate, resting heart rate, heart rate variability,
+                active calories burned, distance, and historical Health Data for those types. If you turn on
+                "Sync meals to Health Connect," we also write nutrition records from food-photo analysis back to
+                Health Connect.</li>
+            <li><strong>iOS:</strong> we read Health Data from Apple Health (HealthKit) with your permission. Types we
+                request include steps, sleep analysis, workouts, heart rate, resting heart rate, heart rate variability,
+                respiratory rate, active energy, activity summaries, height, body mass, dietary water, biological sex,
+                and date of birth. If you turn on "Sync meals to Apple Health," we write dietary nutrition samples
+                from food-photo analysis back to Apple Health.</li>
+            <li><strong>Fitbit / Google Health (optional):</strong> if you connect this source, we read activity and
+                fitness, sleep, and health metrics through the Google Health API using these scopes:
+                <strong>googlehealth.activity_and_fitness.readonly</strong>,
+                <strong>googlehealth.sleep.readonly</strong>, and
+                <strong>googlehealth.health_metrics_and_measurements.readonly</strong>.
+                We use that Google user data only to provide the health features you enabled. We do not use it for
+                advertising, selling, or unrelated analytics. We comply with the
+                <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank"
+                    rel="noopener noreferrer">Google API Services User Data Policy</a>.</li>
+        </ul>
+
+        <h3>4.2 How we collect and use Health Data</h3>
+        <p>After you grant permission, the app reads Health Data on the device (or from Google Health, if connected)
+            to power Timeline, Home / Coach Brief, scheduled briefings, coaching progress, sleep and activity insights,
+            and Ask Oria tool calls. When a feature needs it, we transmit summarized Health Data (for example daily
+            steps, sleep duration, heart-rate summaries, workout summaries, and nutrition from food photos) to our
+            servers and may store it with your account. We also store mood check-ins and food-photo nutrition analyses
+            you create in the app. If you join a friend challenge, we store the daily metric you submit for that
+            challenge (sleep, steps, or exercise minutes) and share that metric with the friends in the challenge.</p>
+        <p>We do not sell Health Data. We do not use Health Data for advertising or for credit, insurance, or
+            employment decisions. We do not use Health Data for any purpose other than providing and improving the
+            Oria AI features described in this policy.</p>
+
+        <h3>4.3 Sharing Health Data</h3>
+        <p>We may share Health Data (1) with third-party AI providers when you use AI features that need that context
+            (see Section 6), (2) with friends you invite to a challenge, for the metric that challenge uses, or
+            (3) when required by law. Service providers that host our backend (Firebase / Google Cloud) process Health
+            Data on our behalf under confidentiality terms. Revoking Health Connect, Apple Health, or Fitbit / Google
+            Health permission stops new reads. It does not by itself delete Health Data we already stored with your
+            account; use account deletion or email us to remove that stored data.</p>
+
+        <h2>5. Google User Data (Calendar)</h2>
         <p>When you connect your Google account, we request access only to your Google Calendar data. We use the
             following scopes:</p>
         <ul>
@@ -81,69 +139,103 @@
                 href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank"
                 rel="noopener noreferrer">Google API Services User Data Policy</a>.</p>
 
-        <h2>5. Third-Party AI Services</h2>
+        <h2>6. Third-Party AI Services</h2>
         <p>Oria AI uses third-party large language model (LLM) providers to power its AI features. Before any personal
             data is sent to these services, the app will ask for your explicit consent.</p>
 
-        <h3>5.1 Who We Send Data To</h3>
+        <h3>6.1 Who We Send Data To</h3>
         <p>We may transmit data to the following third-party AI service providers:</p>
         <ul>
             <li><strong>OpenAI</strong> (OpenAI, L.L.C.) — <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
             <li><strong>Anthropic</strong> (Anthropic, PBC) — <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
             <li><strong>Google</strong> (Google LLC) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+            <li><strong>xAI</strong> (X.AI LLC) — <a href="https://x.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
         </ul>
 
-        <h3>5.2 What Data Is Sent</h3>
+        <h3>6.2 What Data Is Sent</h3>
         <p>When you interact with Oria AI's features, the following types of data may be sent to the third-party AI providers listed above:</p>
         <ul>
             <li>Messages and text you enter in conversations with Oria AI</li>
-            <li>Contextual data from connected services that you have authorized (e.g., calendar event details if you connected Google Calendar)</li>
+            <li>Health Data summaries you have authorized (for example sleep, steps, heart rate, workouts, or nutrition
+                context used for insights or Ask Oria)</li>
+            <li>Contextual data from connected services that you have authorized (for example, calendar event details if you connected Google Calendar)</li>
             <li>Profile or preference information you provide within the app to personalize AI responses</li>
         </ul>
         <p>We do <strong>not</strong> send your email address, password, payment information, or device identifiers to these AI providers.</p>
 
-        <h3>5.3 How Data Is Used by Third-Party AI Providers</h3>
+        <h3>6.3 How Data Is Used by Third-Party AI Providers</h3>
         <p>Data sent to these providers is used solely to generate AI-powered responses and insights within the Oria AI
             app. We access these services through their API platforms, which are governed by their respective data
             processing agreements. Under these agreements, the providers do not use your data to train or improve their
             models.</p>
 
-        <h3>5.4 Your Consent</h3>
+        <h3>6.4 Your Consent</h3>
         <p>The app will clearly inform you and request your permission before any personal data is shared with
             third-party AI services. You may withdraw your consent at any time through the app's settings, though this
             may limit the availability of certain AI-powered features.</p>
 
-        <h3>5.5 Protections</h3>
+        <h3>6.5 Protections</h3>
         <p>All data transmitted to third-party AI providers is encrypted in transit. We have reviewed the privacy
             practices of each provider and confirm that they provide protections for user data consistent with or
             equivalent to those described in this Privacy Policy. We use API-level access with data processing terms
             that restrict providers from using your data beyond fulfilling our requests.</p>
 
-        <h2>6. Data Sharing</h2>
+        <h2>7. Data Sharing</h2>
         <p>We do not sell your data. We may share information only: (1) with your consent, (2) with service providers
-            (including the third-party AI providers described in Section 5) who help us operate our services under
-            strict confidentiality, or (3) when required by law or to protect rights and safety.</p>
+            (including the third-party AI providers described in Section 6) who help us operate our services under
+            strict confidentiality, (3) with friends you choose to share with (for example a challenge metric), or
+            (4) when required by law or to protect rights and safety.</p>
 
-        <h2>7. Security</h2>
+        <h2>8. Data Retention</h2>
+        <p>We store and retain user data, including Health Data we have collected, as follows.</p>
+        <ul>
+            <li><strong>Account and app data.</strong> We retain account information, conversations, notes, mood
+                check-ins, insights, memories, coaching plans, location history, photos you upload, preferences, and
+                connected-service tokens for as long as your Oria AI account is active.</li>
+            <li><strong>Health Data.</strong> Raw records in Health Connect and Apple Health stay in those platform
+                stores on your device; we read them with permission and do not take over that store. Summarized Health
+                Data we collect (daily metrics, insight inputs, coaching observations, food-photo nutrition, and
+                challenge entries) is stored with your account for as long as the account is active, or until you
+                delete the specific item in the app where that is offered.</li>
+            <li><strong>Account deletion.</strong> When you delete your account at
+                <a href="/delete-account">oria.me/delete-account</a>, in the app, or by emailing
+                <a href="mailto:privacy@theother.me">privacy@theother.me</a>, we delete associated personal data,
+                including stored Health Data, from our production systems. Residual copies in routine backups are
+                purged within 30 days. Email deletion requests are completed within 30 days.</li>
+            <li><strong>Legal and billing records.</strong> We may retain limited billing identifiers and a minimal
+                record that an account was deleted, as required for tax, accounting, fraud prevention, or dispute
+                handling, typically for the period required by law (often up to 7 years for tax records). Apple and
+                Google keep their own store purchase records.</li>
+            <li><strong>Third-party AI providers.</strong> Data already sent to a provider to generate a response
+                cannot be recalled from that provider. We stop sending them data after your account is deleted.</li>
+            <li><strong>Waitlist and newsletter.</strong> These lists are separate from the app account. Email
+                <a href="mailto:privacy@theother.me">privacy@theother.me</a> if you also want those addresses removed.</li>
+        </ul>
+        <p>If you disconnect a health source or revoke Health Connect / Apple Health permission, we stop collecting
+            new Health Data from that source. Previously stored Health Data remains until you delete it or delete your
+            account, as described above.</p>
+
+        <h2>9. Security</h2>
         <p>We use industry-standard measures to protect your data. No transmission or storage is 100% secure; we cannot
             guarantee absolute security.</p>
 
-        <h2>8. Your Rights</h2>
+        <h2>10. Your Rights</h2>
         <p>You can access, correct, or delete your data and control connected sources through the app or by contacting
-            us. To delete your Oria AI account and associated data, use
+            us. You can revoke Health Data access in Health Connect, Apple Health, or by disconnecting Fitbit / Google
+            Health. To delete your Oria AI account and associated data, including stored Health Data, use
             <a href="/delete-account">oria.me/delete-account</a>, the in-app Delete Account control, or email
             <a href="mailto:privacy@theother.me">privacy@theother.me</a>. We will respond to requests in accordance
             with applicable law.</p>
 
-        <h2>9. Children</h2>
+        <h2>11. Children</h2>
         <p>Our services are not intended for users under 13 (or the applicable age in your region). We do not knowingly
             collect data from children.</p>
 
-        <h2>10. Changes</h2>
+        <h2>12. Changes</h2>
         <p>We may update this policy from time to time. We will post the updated policy on our website and, where
             appropriate, notify you. Continued use after changes means you accept the updated policy.</p>
 
-        <h2>11. Contact</h2>
+        <h2>13. Contact</h2>
         <p>For privacy questions or requests:</p>
         <ul>
             <li><strong>Email:</strong> privacy@theother.me</li>

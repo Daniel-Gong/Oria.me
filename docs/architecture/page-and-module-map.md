@@ -23,6 +23,7 @@ This page is the website-side map of pages and JavaScript entrypoints.
   - main client module: `js/main.js`
 - `privacy.html`, `terms.html`, `slideshow.html`, `404.html`
   - mostly static pages
+  - `privacy.html` (`https://oria.me/privacy`) is the Play / App Store privacy-policy URL. It must disclose Health Data access, collection, and use (Health Connect, Apple Health, optional Fitbit / Google Health) and state data-retention practices, including account deletion and the 30-day backup purge.
 - `delete-account.html`
   - Play / store account-deletion URL (`https://oria.me/delete-account`)
   - static disclosure (app name, steps, data deleted vs kept) plus sign-in + Firebase `user.delete()`
